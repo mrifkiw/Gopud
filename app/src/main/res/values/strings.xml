@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Gofood</string>
+    <string name="food_source_from"><![CDATA[https://i1.wp.com/seruni.id/wp-content/uploads/2020/12/Olahan-Kacang-Panjang.png?fit=735%2C487&ssl=1]]></string>
+    <string name="food_image_alt_desc">Food Image</string>
+    <string name="image_credit">http://kbu-cdn.com/dk/wp-content/uploads/tumis-kacang-panjang-bumbu-pedas.jpg</string>
+    <string name="sajian_untuk">Sajian untuk</string>
+    <string name="button_ubah">Ubah</string>
+    <string name="berapa_porsi">Berapa Porsi?</string>
+    <string name="bahan_bahan">Bahan-bahan :</string>
+    <string name="cara_pembuatan">
+        Cara Pembuatan
+        \n\n1. Tumis bawang putih sampai kekuningan,masuk kan kacang panjang,tumis sampai bercampur rata,masuk kan arak masak
+        \n\n2. Kemudian masuk kan sedikit air agar sayur tidak gosong,lalu ungkep sebentar sampai kondisi sayur 1/2 matang,tambahkan garam dan penyedap,sajikan selagi hangat tumis sayuran jangan terlalu matang
+        \n\n3. Tumis bawang putih sampai kekuningan,masuk kan kacang panjang,tumis sampai bercampur rata,masuk kan arak masak
+        \n\n4. Kemudian masuk kan sedikit air agar sayur tidak gosong,lalu ungkep sebentar sampai kondisi sayur 1/2 matang,tambahkan garam dan penyedap,sajikan selagi hangat tumis sayuran jangan terlalu matang
+        \n\n5. Tumis bawang putih sampai kekuningan,masuk kan kacang panjang,tumis sampai bercampur rata,masuk kan arak masak
+        \n\n6. Kemudian masuk kan sedikit air agar sayur tidak gosong,lalu ungkep sebentar sampai kondisi sayur 1/2 matang,tambahkan garam dan penyedap,sajikan selagi hangat tumis sayuran jangan terlalu matang
+        \n\n7. Tumis bawang putih sampai kekuningan,masuk kan kacang panjang,tumis sampai bercampur rata,masuk kan arak masak
+        \n\n8. Kemudian masuk kan sedikit air agar sayur tidak gosong,lalu ungkep sebentar sampai kondisi sayur 1/2 matang,tambahkan garam dan penyedap,sajikan selagi hangat tumis sayuran jangan terlalu matang
+    </string>
+    <string name="garam_penyedap">%s Sdt garam dan penyedap</string>
+    <string name="arak_masak">%s Sdt arak masak</string>
+    <string name="bawang_putih">%s Siung Bawang Putih</string>
+    <string name="kacang_panjang">%s Kg Kacang Panjang</string>
+    <string name="default_text_bahan1">0.555 Kg Kacang Panjang</string>
+    <string name="default_text_bahan2">1.65 Siung Bawang Putih</string>
+    <string name="default_text_bahan3">1 Sdt arak masak</string>
+    <string name="default_text_bahan4">1 Sdt garam dan penyedap</string>
+
+</resources>
