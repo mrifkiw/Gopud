@@ -33,8 +33,12 @@
     <string name="bawang_putih_text">Bawang Putih</string>
     <string name="garam_text">Garam Dapur</string>
     <string name="arak_text">Arak Masak</string>
-    <string name="total_price">Total: %s</string>
+    <string name="total_price">Total: Rp %s</string>
     <string name="button_checkout">Checkout</string>
+    <string name="subtotal_kacang">Rp %s</string>
+    <string name="subtotal_bawang">Rp %s</string>
+    <string name="subtotal_garam">Rp %s</string>
+    <string name="subtotal_arak">Rp %s</string>
 
 
 </resources>

@@ -5,6 +5,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+
     <ScrollView
 
         android:id="@+id/list_card_view"
@@ -22,12 +24,13 @@
                 android:layout_height="match_parent"
                 android:padding="16dp">
 
+
                 <ImageView
                     android:id="@+id/gambar_kacang"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/food_image" />
+                    app:srcCompat="@drawable/kacang_panjang" />
 
                 <LinearLayout
                     android:layout_width="160dp"
@@ -82,11 +85,11 @@
 
                 <TextView
                     android:id="@+id/subtotal_kacang_panjang_price"
-                    style="@style/TextAppearance.AppCompat.Title"
+                    style="@style/TextAppearance.AppCompat.Body1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="16dp"
-                    android:text="Rp 4.500" />
+                    android:text="@string/subtotal_kacang" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/card_view_bawang_putih"
@@ -98,8 +101,8 @@
                     android:id="@+id/gambar_bawang_putih"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/food_image" />
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/bawang_putih" />
 
                 <LinearLayout
                     android:layout_width="160dp"
@@ -154,11 +157,11 @@
 
                 <TextView
                     android:id="@+id/subtotal_bawang_putih_price"
-                    style="@style/TextAppearance.AppCompat.Title"
+                    style="@style/TextAppearance.AppCompat.Body1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="16dp"
-                    android:text="Rp 55.000" />
+                    android:text="@string/subtotal_bawang" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/card_view_garam"
@@ -171,7 +174,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/food_image" />
+                    app:srcCompat="@drawable/garam_dapur" />
 
                 <LinearLayout
                     android:layout_width="160dp"
@@ -226,11 +229,11 @@
 
                 <TextView
                     android:id="@+id/subtotal_garam_price"
-                    style="@style/TextAppearance.AppCompat.Title"
+                    style="@style/TextAppearance.AppCompat.Body1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="16dp"
-                    android:text="Rp 27.400" />
+                    android:text="@string/subtotal_garam" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/card_view_arak"
@@ -242,8 +245,8 @@
                     android:id="@+id/gambar_arak"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/food_image" />
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/arak_masak" />
 
                 <LinearLayout
                     android:layout_width="160dp"
@@ -263,7 +266,7 @@
                         style="@style/TextAppearance.AppCompat.Caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rp 40.000/0.6ml" />
+                        android:text="Rp 40.000/0.6L" />
 
                     <LinearLayout
                         android:id="@+id/custom_quantity_arak"
@@ -298,11 +301,11 @@
 
                 <TextView
                     android:id="@+id/subtotal_arak_price"
-                    style="@style/TextAppearance.AppCompat.Title"
+                    style="@style/TextAppearance.AppCompat.Body1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="16dp"
-                    android:text="Rp 40.000" />
+                    android:text="@string/subtotal_arak" />
             </LinearLayout>
 
             <LinearLayout
@@ -314,17 +317,17 @@
 
                 <TextView
                     android:id="@+id/total_price"
-                    android:paddingStart="16dp"
-                    android:layout_marginEnd="140dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     style="@style/TextAppearance.AppCompat.Display1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+
                     android:text="@string/total_price" />
 
                 <Button
                     android:id="@+id/button_checkout"
                     android:text="@string/button_checkout"
-                    android:layout_margin="16dp"
+                    android:layout_margin="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"/>
             </LinearLayout>

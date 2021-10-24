@@ -1,6 +1,7 @@
 package com.example.gofood
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,6 +14,7 @@ import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +27,15 @@ class MainActivity : AppCompatActivity() {
         binding.garamPenyedap.text = getString(R.string.default_text_bahan4)
 
         binding.buttonUbah.setOnClickListener{ changeCountMaterial() }
+        binding.catatBelanjaan.setOnClickListener{ sendDataMaterial() }
 
     }
 
+    private fun sendDataMaterial() {
+        val intent = Intent(this, CartActivity::class.java)
+        intent.putExtra("porsi", binding.editPorsiEditText.text.toString())
+        startActivity(intent)
+    }
 
     fun changeCountMaterial() {
         val stringTextField = binding.editPorsiEditText.text.toString()
