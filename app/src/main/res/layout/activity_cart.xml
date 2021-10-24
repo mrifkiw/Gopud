@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+
+        android:id="@+id/list_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/card_view_kacang"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/gambar_kacang"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/food_image" />
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/kacang_panjang_text"
+                        style="@style/TextAppearance.AppCompat.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kacang_panjang_text" />
+
+                    <TextView
+                        android:id="@+id/kacang_panjang_price"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 4.500/Kg" />
+
+                    <LinearLayout
+                        android:id="@+id/custom_quantity_kacang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <Button
+                            android:id="@+id/button_ubah_minus_kacang"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/kacang_panjang_quantity"
+                            style="@style/TextAppearance.AppCompat.Body1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="1" />
+
+                        <Button
+                            android:id="@+id/button_ubah_plus_kacang"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="+" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/subtotal_kacang_panjang_price"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:text="Rp 4.500" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/card_view_bawang_putih"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/gambar_bawang_putih"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/food_image" />
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/bawang_putih_text"
+                        style="@style/TextAppearance.AppCompat.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bawang_putih_text" />
+
+                    <TextView
+                        android:id="@+id/bawang_putih_price"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 55.000/Kg" />
+
+                    <LinearLayout
+                        android:id="@+id/custom_quantity_bawang_putih"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <Button
+                            android:id="@+id/button_ubah_minus_bawang_putih"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/bawang_putih_quantity"
+                            style="@style/TextAppearance.AppCompat.Body1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="1" />
+
+                        <Button
+                            android:id="@+id/button_ubah_plus_bawang_putih"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="+" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/subtotal_bawang_putih_price"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:text="Rp 55.000" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/card_view_garam"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/gambar_garam"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/food_image" />
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/garam_text"
+                        style="@style/TextAppearance.AppCompat.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/garam_text" />
+
+                    <TextView
+                        android:id="@+id/garam_price"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 27.400/0.5Kg" />
+
+                    <LinearLayout
+                        android:id="@+id/custom_quantity_garam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <Button
+                            android:id="@+id/button_ubah_minus_garam"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/garam_quantity"
+                            style="@style/TextAppearance.AppCompat.Body1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="1" />
+
+                        <Button
+                            android:id="@+id/button_ubah_plus_garam"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="+" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/subtotal_garam_price"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:text="Rp 27.400" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/card_view_arak"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/gambar_arak"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/food_image" />
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/arak_text"
+                        style="@style/TextAppearance.AppCompat.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/arak_text" />
+
+                    <TextView
+                        android:id="@+id/arak_price"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 40.000/0.6ml" />
+
+                    <LinearLayout
+                        android:id="@+id/custom_quantity_arak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <Button
+                            android:id="@+id/button_ubah_minus_arak"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/arak_quantity"
+                            style="@style/TextAppearance.AppCompat.Body1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="1" />
+
+                        <Button
+                            android:id="@+id/button_ubah_plus_arak"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="+" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/subtotal_arak_price"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:text="Rp 40.000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/area_checkout"
+                android:layout_width="match_parent"
+                android:gravity="bottom"
+                android:layout_height="280dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/total_price"
+                    android:paddingStart="16dp"
+                    android:layout_marginEnd="140dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextAppearance.AppCompat.Display1"
+                    android:text="@string/total_price" />
+
+                <Button
+                    android:id="@+id/button_checkout"
+                    android:text="@string/button_checkout"
+                    android:layout_margin="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+</LinearLayout>
+

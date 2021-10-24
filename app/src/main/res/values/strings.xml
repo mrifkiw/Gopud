@@ -28,4 +28,13 @@
     <string name="default_text_bahan4">1 Sdt garam dan penyedap</string>
     <string name="catat_belanjaan">Catat Belanjaan</string>
 
+    <!--    nama card-->
+    <string name="kacang_panjang_text">Kacang panjang</string>
+    <string name="bawang_putih_text">Bawang Putih</string>
+    <string name="garam_text">Garam Dapur</string>
+    <string name="arak_text">Arak Masak</string>
+    <string name="total_price">Total: %s</string>
+    <string name="button_checkout">Checkout</string>
+
+
 </resources>
