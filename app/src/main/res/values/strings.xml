@@ -26,5 +26,6 @@
     <string name="default_text_bahan2">1.65 Siung Bawang Putih</string>
     <string name="default_text_bahan3">1 Sdt arak masak</string>
     <string name="default_text_bahan4">1 Sdt garam dan penyedap</string>
+    <string name="catat_belanjaan">Catat Belanjaan</string>
 
 </resources>
