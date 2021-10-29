@@ -13,7 +13,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ShareCompat
 import com.example.gofood.databinding.ActivityCartBinding
-import com.example.gofood.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import java.text.NumberFormat
 import java.util.*
@@ -22,58 +21,59 @@ import kotlin.math.ceil
 const val sdt = 15
 class CartActivity : AppCompatActivity() {
     lateinit var binding: ActivityCartBinding
-
-
-
     companion object {
         const val PORSI = "porsi"
         const val SEARCH_PREFIX = "https://www.google.com/search?q="
     }
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val porsi = intent?.getStringExtra(PORSI)?.toDouble()
+        val porsi = intent?.getStringExtra(PORSI)
 
-        var kacang = ceil(0.555 * porsi!!)
-        var kacangPrice = kacang * 4500
+
+        var kacang = ceil(konversiPorsiKeBahan(porsi!!,0.555))
+        var kacangPrice = subTotalHargaKacang(kacang.toString(), 4500.toString())
         var subTotalKacang = NumberFormat.getInstance().format(kacangPrice)
 
-        var garam = ceil((1.65 * porsi!!)/15)
-        var garamPrice = garam * 0.5 * 55000
+        var garam = ceil(konversiPorsiKeBahan(porsi,1.65/15))
+        var garamPrice = subTotalHargaKacang(garam.toString(), (0.5 * 55000).toString())
         var subTotalGaram = NumberFormat.getInstance().format(garamPrice)
 
-        var arak = ceil((porsi!!/5) % 600)
-        var arakPrice = arak * 40000
+        var arak = ceil(konversiPorsiKeBahan(porsi, 1.0/120))
+        var arakPrice = subTotalHargaKacang(arak.toString(), 40000.toString())
         var subTotalArak = NumberFormat.getInstance().format(arakPrice)
 
-        var bawang = ceil((porsi!!/8) % 1000)
-        var bawangPrice = bawang * 55000
+        var bawang = ceil(konversiPorsiKeBahan(porsi, 1.0/8000))
+        var bawangPrice = subTotalHargaKacang(bawang.toString(), 55000.toString())
         var subTotalBawang = NumberFormat.getInstance().format(bawangPrice)
+
+        var harga = Price(
+            kacangPrice,
+            garamPrice,
+            arakPrice,
+            bawangPrice
+        )
 
         binding.subtotalKacangPanjangPrice.text = getString(R.string.subtotal_kacang, subTotalKacang)
         binding.kacangPanjangQuantity.text = kacang.toString()
         binding.buttonUbahMinusKacang.setOnClickListener{
-
             kacang = minusButton(kacang.toInt()).toDouble()
             checkIsDelete(it,kacang, binding.cardViewKacang)
             binding.kacangPanjangQuantity.text = kacang.toString()
-            kacangPrice = kacang * 4500
-            subTotalKacang = NumberFormat.getInstance().format(kacangPrice)
+            harga.updateSubTotalKacang(kacang * 4500)
+            subTotalKacang = NumberFormat.getInstance().format(harga.kacang)
             binding.subtotalKacangPanjangPrice.text = getString(R.string.subtotal_kacang, subTotalKacang)
-            updateTotalHarga(kacangPrice, bawangPrice, garamPrice, arakPrice)
-
+            updateTotalHarga(harga)
         }
         binding.buttonUbahPlusKacang.setOnClickListener{
             kacang = plusButton(kacang.toInt()).toDouble()
             binding.kacangPanjangQuantity.text = kacang.toString()
-            var kacangPrice = kacang * 4500
-            subTotalKacang = NumberFormat.getInstance().format(kacangPrice)
+            harga.updateSubTotalKacang(kacang * 4500)
+            subTotalKacang = NumberFormat.getInstance().format(harga.kacang)
             binding.subtotalKacangPanjangPrice.text = getString(R.string.subtotal_kacang, subTotalKacang)
-            updateTotalHarga(kacangPrice, bawangPrice, garamPrice, arakPrice)
+            updateTotalHarga(harga)
         }
         //misal 15 sdt = 500gram
 
@@ -83,23 +83,22 @@ class CartActivity : AppCompatActivity() {
             garam = minusButton(garam.toInt()).toDouble()
             checkIsDelete(it,garam, binding.cardViewGaram)
             binding.garamQuantity.text = garam.toString()
-            garamPrice = garam * 0.5 * 55000
-            subTotalGaram = NumberFormat.getInstance().format(garamPrice)
+            harga.updateSubTotalGaram(garam * 0.5 * 55000)
+            subTotalGaram = NumberFormat.getInstance().format(harga.garam)
             binding.subtotalGaramPrice.text = getString(R.string.subtotal_garam, subTotalGaram)
-            updateTotalHarga(kacangPrice, bawangPrice, garamPrice, arakPrice)
-
+            updateTotalHarga(harga)
         }
         binding.buttonUbahPlusGaram.setOnClickListener{
             garam = plusButton(garam.toInt()).toDouble()
             binding.garamQuantity.text = garam.toString()
-            garamPrice = garam * 0.5 * 55000
-            subTotalGaram = NumberFormat.getInstance().format(garamPrice)
+            harga.updateSubTotalGaram(garam * 0.5 * 55000)
+            subTotalGaram = NumberFormat.getInstance().format(harga.garam)
             binding.subtotalGaramPrice.text = getString(R.string.subtotal_garam, subTotalGaram)
-            updateTotalHarga(kacangPrice, bawangPrice, garamPrice, arakPrice)
+            updateTotalHarga(harga)
         }
 
         //misal 1 sdt = 5 ml arak
-        // contoh 3000 sdt => 3000/5 = 600ml => satu botol
+        // contoh 120 sdt => 12 * 5 = 600ml => satu botol
 
         binding.subtotalArakPrice.text = getString(R.string.subtotal_arak, subTotalArak)
         binding.arakQuantity.text = arak.toString()
@@ -107,18 +106,18 @@ class CartActivity : AppCompatActivity() {
             arak = minusButton(arak.toInt()).toDouble()
             checkIsDelete(it,arak, binding.cardViewArak)
             binding.arakQuantity.text = arak.toString()
-            arakPrice = arak * 0.5 * 55000
-            subTotalArak = NumberFormat.getInstance().format(arakPrice)
+            harga.updateSubTotalArak((arak * 40000))
+            subTotalArak = NumberFormat.getInstance().format(harga.arak)
             binding.subtotalArakPrice.text = getString(R.string.subtotal_arak, subTotalArak)
-            updateTotalHarga(kacangPrice, bawangPrice, garamPrice, arakPrice)
+            updateTotalHarga(harga)
         }
         binding.buttonUbahPlusArak.setOnClickListener{
             arak = plusButton(arak.toInt()).toDouble()
             binding.arakQuantity.text = arak.toString()
-            arakPrice = arak * 0.5 * 55000
-            subTotalArak = NumberFormat.getInstance().format(arakPrice)
+            harga.updateSubTotalArak((arak * 40000))
+            subTotalArak = NumberFormat.getInstance().format(harga.arak)
             binding.subtotalArakPrice.text = getString(R.string.subtotal_arak, subTotalArak)
-            updateTotalHarga(kacangPrice, bawangPrice, garamPrice, arakPrice)
+            updateTotalHarga(harga)
         }
 
         //1 siung = 8 gram
@@ -129,22 +128,23 @@ class CartActivity : AppCompatActivity() {
             bawang = minusButton(bawang.toInt()).toDouble()
             checkIsDelete(it,bawang, binding.cardViewBawangPutih)
             binding.bawangPutihQuantity.text = bawang.toString()
-            bawangPrice = garam * 0.5 * 55000
-            subTotalBawang = NumberFormat.getInstance().format(bawangPrice)
+//            bawangPrice = garam * 0.5 * 55000
+            harga.updateSubTotalBawang((bawang * 55000))
+            subTotalBawang = NumberFormat.getInstance().format(harga.bawang)
             binding.subtotalBawangPutihPrice.text = getString(R.string.subtotal_bawang, subTotalBawang)
-            updateTotalHarga(kacangPrice, bawangPrice, garamPrice, arakPrice)
+            updateTotalHarga(harga)
         }
         binding.buttonUbahPlusBawangPutih.setOnClickListener{
             bawang = plusButton(bawang.toInt()).toDouble()
             binding.bawangPutihQuantity.text = bawang.toString()
-            bawangPrice = garam * 0.5 * 55000
-            subTotalBawang = NumberFormat.getInstance().format(bawangPrice)
+            harga.updateSubTotalBawang((bawang * 55000))
+            subTotalBawang = NumberFormat.getInstance().format(harga.bawang)
             binding.subtotalBawangPutihPrice.text = getString(R.string.subtotal_bawang, subTotalBawang)
-            updateTotalHarga(kacangPrice, bawangPrice, garamPrice, arakPrice)
+            updateTotalHarga(harga)
         }
 
-        updateTotalHarga(kacangPrice, bawangPrice, garamPrice, arakPrice)
-
+        //perhitungan total awal
+        updateTotalHarga(harga)
 
         binding.buttonCheckout.setOnClickListener{
             var totalHarga = binding.totalPrice.text
@@ -154,8 +154,6 @@ class CartActivity : AppCompatActivity() {
         }
 
     }
-
-
 
     override fun onStop() {
         super.onStop()
@@ -183,23 +181,10 @@ class CartActivity : AppCompatActivity() {
         }
     }
 
-    fun updateTotalHarga(sub1:Double, sub2:Double, sub3:Double, sub4:Double){
-        var total = sub1 + sub2 + sub3 + sub4
+    fun updateTotalHarga(price: Price){
+        var total = price.getTotalPrice()
         var totalPrice = NumberFormat.getInstance().format(total)
         binding.totalPrice.text = getString(R.string.total_price, totalPrice)
-    }
-
-
-    fun plusButton(quantity: Int): Int {
-        return quantity + 1
-    }
-
-    fun minusButton(quantity: Int): Int {
-        if (quantity > 0) {
-            return quantity - 1
-        }else{
-            return quantity
-        }
     }
 
 }
