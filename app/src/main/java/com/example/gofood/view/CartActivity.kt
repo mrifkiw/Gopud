@@ -1,21 +1,16 @@
 package com.example.gofood
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.ShareCompat
 import com.example.gofood.databinding.ActivityCartBinding
+import com.example.gofood.model.Price
 import com.google.android.material.snackbar.Snackbar
 import java.text.NumberFormat
-import java.util.*
 import kotlin.math.ceil
 
 const val sdt = 15
