@@ -29,7 +29,7 @@ class CartLogicTest {
     @Test
     fun whenMinusButtonIsValid() {
         val qty = 5
-        for (i in 1..qty) {
+        for (i in 1..(qty + 1)) {
             CartLogic.minusButton(qty)
         }
         assertThat(qty).isGreaterThan(0)
