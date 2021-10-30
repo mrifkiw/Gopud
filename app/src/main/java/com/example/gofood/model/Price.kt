@@ -1,4 +1,4 @@
-package com.example.gofood
+package com.example.gofood.model
 
 class Price(
     kacang: Double?,

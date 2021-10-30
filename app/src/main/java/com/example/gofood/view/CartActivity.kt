@@ -1,4 +1,4 @@
-package com.example.gofood
+package com.example.gofood.view
 
 import android.content.Intent
 import android.net.Uri
@@ -7,13 +7,17 @@ import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.example.gofood.*
+import com.example.gofood.CartLogic.konversiPorsiKeBahan
+import com.example.gofood.CartLogic.minusButton
+import com.example.gofood.CartLogic.plusButton
+import com.example.gofood.CartLogic.subTotalHargaKacang
 import com.example.gofood.databinding.ActivityCartBinding
 import com.example.gofood.model.Price
 import com.google.android.material.snackbar.Snackbar
 import java.text.NumberFormat
 import kotlin.math.ceil
 
-const val sdt = 15
 class CartActivity : AppCompatActivity() {
     lateinit var binding: ActivityCartBinding
     companion object {
@@ -143,7 +147,7 @@ class CartActivity : AppCompatActivity() {
 
         binding.buttonCheckout.setOnClickListener{
             var totalHarga = binding.totalPrice.text
-            val queryUrl: Uri = Uri.parse("${CartActivity.SEARCH_PREFIX}${totalHarga}")
+            val queryUrl: Uri = Uri.parse("${SEARCH_PREFIX}${totalHarga}")
             val intent = Intent(Intent.ACTION_VIEW, queryUrl)
             startActivity(intent)
         }
