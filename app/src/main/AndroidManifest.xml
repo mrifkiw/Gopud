@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gofood">
         <activity
-            android:name=".CartActivity"
-            android:parentActivityName=".MainActivity" >
+            android:name=".view.CartActivity"
+            android:parentActivityName=".view.MainActivity" >
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
